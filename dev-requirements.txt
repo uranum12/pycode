@@ -1,0 +1,6 @@
+pip-tools
+invoke
+black
+isort
+flake8-pyproject
+mypy

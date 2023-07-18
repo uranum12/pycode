@@ -1,0 +1,17 @@
+[tool.black]
+target-version = ["py310"]
+line-length = 79
+include = ".py$"
+skip-string-normalization = true
+
+[tool.isort]
+profile = "black"
+
+[tool.flake8]
+max-line-length = 79
+
+[tool.mypy]
+python_version = "3.10"
+show_error_context = true
+disallow_untyped_defs = true
+ignore_missing_imports = true
