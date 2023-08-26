@@ -1,14 +1,14 @@
 [tool.black]
 target-version = ["py310"]
 line-length = 79
-include = ".py$"
-skip-string-normalization = true
 
 [tool.isort]
 profile = "black"
 
-[tool.flake8]
-max-line-length = 79
+[tool.ruff]
+select = ["ALL"]
+ignore = ["D", "FA", "T20", "INP", "PD"]
+unfixable = ["ERA001"]
 
 [tool.mypy]
 python_version = "3.10"

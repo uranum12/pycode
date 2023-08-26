@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from invoke import task
+from invoke.tasks import task
 
 
 def sources() -> str:
@@ -22,5 +22,10 @@ def format(c):
 
 @task
 def lint(c):
-    c.run(f"flake8 {sources()}")
+    c.run(f"ruff {sources()}")
     c.run(f"mypy {sources()}")
+
+
+@task
+def fix(c):
+    c.run(f"ruff {sources()} --fix")

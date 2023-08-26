@@ -2,5 +2,5 @@ pip-tools
 invoke
 black
 isort
-flake8-pyproject
+ruff
 mypy
