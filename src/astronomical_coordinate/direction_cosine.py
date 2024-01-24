@@ -31,7 +31,7 @@ m1 = np.matrix(
         [cos_delta * cos_alpha],
         [cos_delta * sin_alpha],
         [sin_delta],
-    ]
+    ],
 )
 
 m2 = np.matrix(
@@ -39,7 +39,7 @@ m2 = np.matrix(
         [cos_theta, sin_theta, 0],
         [-sin_theta, cos_theta, 0],
         [0, 0, 1],
-    ]
+    ],
 )
 
 m3 = np.dot(m2, m1)
@@ -49,25 +49,25 @@ m4 = np.matrix(
         [sin_phi, 0, -cos_phi],
         [0, 1, 0],
         [cos_phi, 0, sin_phi],
-    ]
+    ],
 )
 
 m5 = np.dot(m4, m3)
 
-tan_A = m5[1, 0] / -m5[0, 0]
+tan_la = m5[1, 0] / -m5[0, 0]
 
-A_prime = np.arctan(tan_A)
+la_prime = np.arctan(tan_la)
 
 if -m5[0, 0] < 0:  # 第2、第3象限
-    A = A_prime + np.radians(180)
+    la = la_prime + np.radians(180)
 elif m5[1, 0] < 0:  # 第4象限
-    A = A_prime + np.radians(360)
+    la = la_prime + np.radians(360)
 else:  # 第1象限
-    A = A_prime
+    la = la_prime
 
 h = np.arcsin(m5[2, 0])
 
-azimuth = np.rad2deg(A)
+azimuth = np.rad2deg(la)
 altitude = np.rad2deg(h)
 
 print(f"天体の赤経         : {right_ascension} [°]")
@@ -95,9 +95,9 @@ print(f"m3 :\n{m3}")
 print(f"m4 :\n{m4}")
 print(f"m5 :\n{m5}")
 
-print(f"tan A              : {tan_A} [rad]")
-print(f"A prime            : {A_prime} [rad]")
-print(f"A                  : {A} [rad]")
+print(f"tan A              : {tan_la} [rad]")
+print(f"A prime            : {la_prime} [rad]")
+print(f"A                  : {la} [rad]")
 
 print(f"h                  : {h} [rad]")
 
